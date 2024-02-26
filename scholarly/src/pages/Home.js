@@ -6,6 +6,7 @@ const Home = () => {
         <>
             <Navigation></Navigation>
             <h1>Home</h1>
+            <p>Match with the best tutor today!</p>
         </>
     );
 };
