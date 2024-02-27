@@ -36,6 +36,7 @@ const Authentication = () => {
       <>
         <Nav.Link href="/" onClick={userSignOut}>Sign Out</Nav.Link>
         <Nav.Link href="/tutor">Tutor</Nav.Link>
+        <Nav.Link href="/findtutor">FInd a Tutor</Nav.Link>
       </>
       }
     </>

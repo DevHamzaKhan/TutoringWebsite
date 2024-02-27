@@ -7,7 +7,7 @@ const AboutUs = () => {
             <Navigation></Navigation>
             <h1>About Us</h1>
             <p>Scholarly is the best turoing platform wow! </p>
-            <a href="/">Home</a>
+            <a href="/aboutus">About Us</a>
         </>
     );
 };
