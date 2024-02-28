@@ -7,6 +7,8 @@ import "./index.css"
 
 const FindTutor = () => {
     const [tutors, setTutors] = useState([]);
+    const [minprice, setMinPrice] = useState([]);
+    const [maxprice, setMaxPrice] = useState([]);
 
     const fetchTutors = async () => {
         try {
@@ -30,12 +32,31 @@ const FindTutor = () => {
             <p>Find a tutor today</p>
 
             <a href="/findtutor">Become a Tutor Today!</a>
+            <div>
+                <label>Min Price:</label>
+                <input
+                    type="text"
+                    value={minprice}
+                    onChange={(e) => setMinPrice(e.target.value)}
+                />
+            </div>
+            <div>
+                <label>Max Price:</label>
+                <input
+                    type="text"
+                    value={maxprice}
+                    onChange={(e) => setMaxPrice(e.target.value)}
+                />
+            </div>
             <div className="todo-content">
-                {tutors?.map((tutor, i) => (
-                    <p key={i}>
-                        {tutor.subject} | {tutor.tutorName} | {tutor.price} | {tutor.gradeLevel} | {tutor.subjectDetails}
-                    </p>
-                ))}
+                {tutors
+                    .filter((tutor) => tutor.price > minprice)
+                    .filter((tutor) => tutor.price < maxprice)
+                    .map((tutor, i) => (
+                        <p key={i}>
+                            {tutor.subject} | {tutor.tutorName} | {tutor.price} | {tutor.gradeLevel} | {tutor.subjectDetails}
+                        </p>
+                    ))}
             </div>
         </>
     );
