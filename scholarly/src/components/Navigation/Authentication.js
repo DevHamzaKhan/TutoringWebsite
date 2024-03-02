@@ -1,8 +1,10 @@
 import React, {useEffect, useState} from "react";
-import {auth, app} from "../../firebase"
-import Nav from 'react-bootstrap/Nav';import Container from 'react-bootstrap/Container';
+import {auth, app, db} from "../../firebase"
+import Nav from 'react-bootstrap/Nav';
+import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
 import { onAuthStateChanged, signOut} from "firebase/auth";
+import { doc, getDoc } from "firebase/firestore";
 
 const Authentication = () => {
   const [authenticatedUser, setauthenticatedUser] = useState("");
@@ -36,7 +38,6 @@ const Authentication = () => {
       <>
         <Nav.Link href="/" onClick={userSignOut}>Sign Out</Nav.Link>
         <Nav.Link href="/tutor">Tutor</Nav.Link>
-        <Nav.Link href="/findtutor">FInd a Tutor</Nav.Link>
         <Nav.Link href="/chathome">chat</Nav.Link>
       </>
       }

@@ -16,6 +16,7 @@ const Navigation = () => {
           <Nav className="me-auto">
             <Nav.Link href="/">Home</Nav.Link>
             <Authentication/>
+          <Nav.Link href="/findtutor">FInd a Tutor</Nav.Link>
             <Nav.Link href="/aboutus">AboutUs</Nav.Link>
           </Nav>
         </Navbar.Collapse>
