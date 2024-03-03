@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Navigation from "../components/Navigation/Navigation";
 import Tutor from "./Tutor"; // Adjust the import path if needed
 import { db } from '../firebase';
+import { NavLink, Link } from "react-router-dom";
 import { collection, getDocs } from "firebase/firestore";
 import "./FindTutor.css"
 
@@ -49,8 +50,7 @@ const FindTutor = () => {
             <Navigation></Navigation>
             <h1>Find a Tutor</h1>
             <p>Find a tutor today</p>
-
-            <a href="/tutor">Become a Tutor Today!</a>
+            <Link to={"/tutor"}>Become a tutor today</Link>
             <div>
                 <label>Min Price:</label>
                 <input
@@ -147,10 +147,11 @@ const FindTutor = () => {
                 {tutors
                     .filter(filterTutors)
                     .map((tutor, i) => (
-                        <p key={i}>
-                            {tutor.subject} | {tutor.tutorName} | {tutor.price} | {tutor.gradeLevel} | {tutor.subjectDetails}
-                        </p>
-                    ))}
+                    <p key={i}>
+                        {tutor.subject} | {tutor.tutorName} | {tutor.price} | {tutor.gradeLevel} | {tutor.subjectDetails}{" "}
+                        <Link to={'/chathome'}>Chat with me today</Link>
+                    </p>
+                ))}
             </div>
         </>
     );
