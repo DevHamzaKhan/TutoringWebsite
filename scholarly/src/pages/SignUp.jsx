@@ -76,12 +76,12 @@ const SignUp = () => {
                         </div>
                         <div class="input-control">
                             <input
-                                type = "text" placeholder="Enter your country" value={country} onChange = {(e) => setCountry(e.target.value)} class="input-field">
+                                type = "text" placeholder="Country" value={country} onChange = {(e) => setCountry(e.target.value)} class="input-field">
                             </input>
                         </div>
                         <div class="input-control">
                             <input
-                                type = "text" placeholder="Enter your city" value={city} onChange = {(e) => setCity(e.target.value)} class="input-field">
+                                type = "text" placeholder="City" value={city} onChange = {(e) => setCity(e.target.value)} class="input-field">
                             </input>
                         </div>
                         <div className="input-control">
