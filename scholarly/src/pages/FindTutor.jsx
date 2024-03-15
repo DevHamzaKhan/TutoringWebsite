@@ -149,7 +149,9 @@ const FindTutor = () => {
                     .map((tutor, i) => (
                     <p key={i}>
                         {tutor.subject} | {tutor.tutorName} | {tutor.price} | {tutor.gradeLevel} | {tutor.subjectDetails}{" "}
-                        <Link to={'/chathome'}>Chat with me today</Link>
+                        <NavLink to={{ pathname: "/chathome", state: { initialUser: tutor.id } }}>
+                        <button>Chat with me today</button>
+                        </NavLink>
                     </p>
                 ))}
             </div>

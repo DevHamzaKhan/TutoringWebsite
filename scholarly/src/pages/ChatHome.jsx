@@ -10,9 +10,9 @@ import {
   getDoc
 } from "firebase/firestore";
 
-const ChatHome = () => {
+const ChatHome = ({ initialUser = null }) => {
   const [users, setUsers] = useState([]);
-  const [selectedUserId, setSelectedUserId] = useState(null);
+  const [selectedUserId, setSelectedUserId] = useState(initialUser);
   const [messages, setMessages] = useState([]);
   const [currentId, setCurrentId] = useState(null);
 

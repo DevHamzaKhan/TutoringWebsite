@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Navigation from "../components/Navigation/Navigation";
-import { db } from '../firebase';
+import { db, auth } from '../firebase';
 import { collection, addDoc, getDocs } from "firebase/firestore";
 import "./index.css"
 
@@ -10,15 +10,19 @@ const Tutor = () => {
     const [price, setPrice] = useState("");
     const [gradeLevel, setGradeLevel] = useState("");
     const [subjectDetails, setSubjectDetails] = useState("");
+    const [id, setId] = useState("");
     const [tutors, setTutors] = useState([]);
 
     const addTutor = async (e) => {
         e.preventDefault();
-
+        const currentUser = auth.currentUser;
+        const currentUserId = currentUser.uid;
+        setId(currentUserId);
         try {
             const docRef = await addDoc(collection(db, "Tutors"), {
                 subject,
                 tutorName,
+                id,
                 price: Number(price),
                 gradeLevel: Number(gradeLevel),
                 subjectDetails,
