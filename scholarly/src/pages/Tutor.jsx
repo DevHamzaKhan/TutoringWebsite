@@ -10,19 +10,18 @@ const Tutor = () => {
     const [price, setPrice] = useState("");
     const [gradeLevel, setGradeLevel] = useState("");
     const [subjectDetails, setSubjectDetails] = useState("");
-    const [id, setId] = useState("");
+    const [tutorId, setTutorId] = useState("");
     const [tutors, setTutors] = useState([]);
 
     const addTutor = async (e) => {
         e.preventDefault();
         const currentUser = auth.currentUser;
         const currentUserId = currentUser.uid;
-        setId(currentUserId);
         try {
             const docRef = await addDoc(collection(db, "Tutors"), {
                 subject,
                 tutorName,
-                id,
+                tutorId: currentUserId, // Set tutorId directly here
                 price: Number(price),
                 gradeLevel: Number(gradeLevel),
                 subjectDetails,

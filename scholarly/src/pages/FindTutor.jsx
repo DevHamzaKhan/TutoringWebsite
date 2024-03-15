@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Navigation from "../components/Navigation/Navigation";
-import Tutor from "./Tutor"; // Adjust the import path if needed
-import { db } from '../firebase';
 import { NavLink, Link } from "react-router-dom";
+import { db } from '../firebase';
 import { collection, getDocs } from "firebase/firestore";
 import "./FindTutor.css"
 
@@ -87,60 +86,7 @@ const FindTutor = () => {
                         />
                         Math
                     </label>
-                    <label>
-                        <input
-                            type="checkbox"
-                            value="Science"
-                            checked={selectedSubjects.includes("Science")}
-                            onChange={() => handleSubjectChange("Science")}
-                        />
-                        Science
-                    </label>
-                    <label>
-                        <input
-                            type="checkbox"
-                            value="French"
-                            checked={selectedSubjects.includes("French")}
-                            onChange={() => handleSubjectChange("French")}
-                        />
-                        French
-                    </label>
-                    <label>
-                        <input
-                            type="checkbox"
-                            value="English"
-                            checked={selectedSubjects.includes("English")}
-                            onChange={() => handleSubjectChange("English")}
-                        />
-                        English
-                    </label>
-                    <label>
-                        <input
-                            type="checkbox"
-                            value="History"
-                            checked={selectedSubjects.includes("History")}
-                            onChange={() => handleSubjectChange("History")}
-                        />
-                        History
-                    </label>
-                    <label>
-                        <input
-                            type="checkbox"
-                            value="Geography"
-                            checked={selectedSubjects.includes("Geography")}
-                            onChange={() => handleSubjectChange("Geography")}
-                        />
-                        Geography
-                    </label>
-                    <label>
-                        <input
-                            type="checkbox"
-                            value="Economy"
-                            checked={selectedSubjects.includes("Economy")}
-                            onChange={() => handleSubjectChange("Economy")}
-                        />
-                        Geography
-                    </label>
+                    {/* Other subject checkboxes */}
                 </div>
             </div>
             <div className="todo-content">
@@ -148,9 +94,9 @@ const FindTutor = () => {
                     .filter(filterTutors)
                     .map((tutor, i) => (
                     <p key={i}>
-                        {tutor.subject} | {tutor.tutorName} | {tutor.price} | {tutor.gradeLevel} | {tutor.subjectDetails}{" "}
-                        <NavLink to={{ pathname: "/chathome", state: { initialUser: tutor.id } }}>
-                        <button>Chat with me today</button>
+                        {tutor.subject} | {tutor.tutorName} | {tutor.price} | {tutor.gradeLevel} | {tutor.subjectDetails}| {tutor.tutorId}{" "}
+                        <NavLink to={{ pathname: "/chathome", state: { initialUser: tutor.tutorId } }}>
+                            <button>Chat with me today</button>
                         </NavLink>
                     </p>
                 ))}

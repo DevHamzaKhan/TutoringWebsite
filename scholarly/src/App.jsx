@@ -1,5 +1,3 @@
-//JSX Lines Saturday: ~900
-//CSS Lines Saturday: ~300
 import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
@@ -19,7 +17,7 @@ function App() {
       <Route path="/aboutus" element={<AboutUs />} />
       <Route path="/tutor" element={<Tutor />} />
       <Route path="/findtutor" element={<FindTutor />} />
-      <Route path="/chathome" element={<ChatHome/>} />
+      <Route path="/chathome" element={<ChatHome initialUser={null} />} />
     </Routes>
   );
 }
